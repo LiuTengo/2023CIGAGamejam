@@ -11,6 +11,7 @@ public class GameStateController : MonoBehaviour
     [Header("菜单")]
     public GameObject StartPanel;
     public GameObject PausePanel;
+    
 
     [Header("全局变量")]
     public bool _isPlaying;
@@ -26,6 +27,9 @@ public class GameStateController : MonoBehaviour
         fsm.AddNewState("StartState",new StartState(this));
         fsm.AddNewState("PlayState",new PlayState(this));
         fsm.AddNewState("PauseState",new PauseState(this));
+        fsm.AddNewState("GuessState", new GuessState(this));
+        fsm.AddNewState("WinState", new WinState(this));
+        fsm.AddNewState("LoseState", new LoseState(this));
 
         //Initialize
         fsm.currentState = fsm.states["StartState"];
