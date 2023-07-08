@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 276992724}
   - component: {fileID: 276992725}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 294446247}
   - component: {fileID: 294446246}
   - component: {fileID: 294446245}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 443291656}
   - component: {fileID: 443291658}
   - component: {fileID: 443291657}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 689344989}
   - component: {fileID: 689344991}
   - component: {fileID: 689344990}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -772,8 +772,8 @@ GameObject:
   - component: {fileID: 851409356}
   - component: {fileID: 851409358}
   - component: {fileID: 851409357}
-  m_Layer: 5
-  m_Name: Bubble_Aera_Enemy
+  m_Layer: 6
+  m_Name: Bubble_Area_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -915,7 +915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 998419445}
   - component: {fileID: 998419446}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.9098039}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1352,6 +1352,9 @@ GameObject:
   - component: {fileID: 1395212716}
   - component: {fileID: 1395212715}
   - component: {fileID: 1395212719}
+  - component: {fileID: 1395212720}
+  - component: {fileID: 1395212722}
+  - component: {fileID: 1395212721}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1371,11 +1374,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_IgnoreReversedGraphics: 0
+  m_BlockingObjects: 1
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
 --- !u!114 &1395212716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1460,7 +1463,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSpriteEnemy: {fileID: 851409357}
   targetSpritePlayer: {fileID: 1916769467}
-  atlas: {fileID: 4343727234628468602, guid: 63079d06366cdd445a547df20c879588, type: 2}
+--- !u!114 &1395212720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395212714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563b581d92903a24e826b274d30a46f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1948163687}
+  temp: 
+  textManager: {fileID: 1395212722}
+--- !u!114 &1395212721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395212714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd4941e0c1fc5e4e82d217524315ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  csvFile: {fileID: 4900000, guid: ded92173c643a1f46b112b64be95a53e, type: 3}
+--- !u!114 &1395212722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395212714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d462fad7092c10a47b823dba54a7fb06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  row: 1
+  col: 0
 --- !u!1 &1412353253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,7 +1636,7 @@ GameObject:
   - component: {fileID: 1434489486}
   - component: {fileID: 1434489485}
   - component: {fileID: 1434489488}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1727,7 +1771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1916769467}
-  headAndTextSpritesManager: {fileID: 0}
+  textManager: {fileID: 1395212722}
 --- !u!1 &1555772973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,13 +2013,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u4F60\u5988\u7684"
+  m_text: "\u70B9\u51FB\u5207\u6362\u5BF9\u8BDDSprite"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fac649cd7d59a4c4194278b9dcd11b15, type: 2}
   m_sharedMaterial: {fileID: -7193424544833299797, guid: fac649cd7d59a4c4194278b9dcd11b15,
@@ -2003,8 +2047,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44
-  m_fontSizeBase: 44
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2218,7 +2262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 0.14117648}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2253,8 +2297,8 @@ GameObject:
   - component: {fileID: 1916769466}
   - component: {fileID: 1916769468}
   - component: {fileID: 1916769467}
-  m_Layer: 5
-  m_Name: Bubble_Area_Player
+  m_Layer: 6
+  m_Name: Bubble_Area_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2405,7 +2449,7 @@ GameObject:
   - component: {fileID: 1948163686}
   - component: {fileID: 1948163688}
   - component: {fileID: 1948163687}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: AlertText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2584,7 +2628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2773,7 +2817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
