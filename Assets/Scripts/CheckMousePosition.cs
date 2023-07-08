@@ -10,7 +10,6 @@ public class CheckMousePosition : MonoBehaviour
 
     void Start()
     {
-        // 获取原始的鼠标灵敏度
         
     }
 
@@ -32,9 +31,10 @@ public class CheckMousePosition : MonoBehaviour
             {
                 if (hit.collider.tag == "GuessCard" && Mathf.Sqrt(mouseXSpeed * mouseXSpeed + mouseYSpeed * mouseYSpeed) <minSpeed)
                 {
-                    Sequence sequence = DOTween.Sequence();
-                    sequence.Append(hit.transform.parent.DOShakePosition(0.5f,new Vector3(0.05f,0,0)));
-                    sequence.Append(hit.transform.parent.DOMove(Vector3.zero,0.1f));
+                    hit.transform.parent.DOScale(transform.localScale *0.95f,0.1f).SetLoops(4,LoopType.Yoyo);
+                    //Sequence sequence = DOTween.Sequence();
+                    //sequence.Append(hit.transform.parent.DOScale(transform.localScale*));
+                    //sequence.Append(hit.transform.parent.DOMove(Vector3.zero,0.1f));
                 }
             }
         }

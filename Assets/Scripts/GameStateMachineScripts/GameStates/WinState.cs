@@ -11,16 +11,16 @@ public class WinState : IGameState
     }
     public void EnterState()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Enter WinState");
     }
 
     public void ExitState()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void UpdateState()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

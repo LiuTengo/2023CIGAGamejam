@@ -25,12 +25,16 @@ public class GameStateController : MonoBehaviour
     public float maxTime;//初始时间
     public Image sliderImg;//填充进度条的图片
     public Slider countDownSlider;//进度条
+    [HideInInspector]public float originMaxTime;
+
     [Header("卡牌管理")]
     public PlaySceneManager playManager;
 
     public void Awake()
     {
-        if(instance == null)
+        originMaxTime = maxTime;
+
+        if (instance == null)
         {
             instance = this;
         }
@@ -45,15 +49,15 @@ public class GameStateController : MonoBehaviour
 
         //Example
         fsm.AddNewState("StartState",new StartState(this));
-        fsm.AddNewState("PauseState",new PauseState(this));
-        fsm.AddNewState("InitialState",new InitialState(this));
+        fsm.AddNewState("PauseState", new PauseState(this));
+        fsm.AddNewState("GachaState",new GachaState(this));
         fsm.AddNewState("GuessState", new GuessState(this));
-        fsm.AddNewState("CompeteState", new CompeteState(this));
+        fsm.AddNewState("CheatState", new CheatState(this));
         fsm.AddNewState("WinState", new WinState(this));
         fsm.AddNewState("LoseState", new LoseState(this));
 
         //Initialize
-        fsm.currentState = fsm.states["StartState"];
+        fsm.currentState = fsm.states["GachaState"];
     }
 
     // Update is called once per frame
@@ -61,11 +65,6 @@ public class GameStateController : MonoBehaviour
     {
         fsm.OnUpdate();
     }
-
-
-
-
-
 
     //提供给按钮——切换游戏状态的方法
     public void SwitchGameState(string stateType)

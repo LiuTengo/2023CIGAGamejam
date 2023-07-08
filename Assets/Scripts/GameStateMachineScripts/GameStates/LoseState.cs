@@ -11,16 +11,17 @@ public class LoseState : IGameState
     }
     public void EnterState()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Enter LoseState");
+    }
+    public void UpdateState()
+    {
+        
     }
 
     public void ExitState()
     {
-        throw new System.NotImplementedException();
+        
     }
 
-    public void UpdateState()
-    {
-        throw new System.NotImplementedException();
-    }
+
 }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardSuit: 4
   CardValue: 1
-  CardBack: {fileID: 0}
-  CardFront: {fileID: 21300000, guid: 9302d42f098e67c41a201e19aa1d27d0, type: 3}
+  CardBack: {fileID: 21300000, guid: b71a6da6142ee024fa47657289a2e318, type: 3}
+  CardFront: {fileID: 21300000, guid: 49ae88f286d084241b793c9273a0f86b, type: 3}
