@@ -10,18 +10,26 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class PlaySceneManager : MonoBehaviour
 {
-    public Vector3 largeScale;
-
+    public int playerHealth, enemyHealth;
     public GameObject playerCard,enemyCard;
+    public List<CardScriptableObject> cardInfos;
     public List<GameObject> playerCards;
     public List<GameObject> enemyCards;
-    public List<CardScriptableObject> cardInfos;
+    public List<Sprite> enemyHPs, playerHPs;
+    public Image enemyHp, playerHp;
+
 
     private GameObject selectCard,enemySelectCard;
     private int cardIndex;
     private bool selectable;
     private void Start()
     {
+        playerHealth = 3;
+        enemyHealth = 3;
+
+        enemyHp.sprite = enemyHPs[enemyHealth-1];
+        playerHp.sprite = playerHPs[playerHealth - 1];
+
         selectable = false;
         SetPlayerCardList();
         SetEnemyCardList();
@@ -134,6 +142,9 @@ public class PlaySceneManager : MonoBehaviour
     //按钮方法---比较卡牌点数大小
     public void CompareCardValue()
     {
+        GameStateController.instance.GuessPanel.SetActive(false);
+        selectCard.GetComponent<BoxCollider>().enabled = false;
+
         int enemyIndex = UnityEngine.Random.Range(0,enemyCards.Count);
 
         SetEnemyCard(enemyCards[enemyIndex]);
@@ -151,18 +162,35 @@ public class PlaySceneManager : MonoBehaviour
 
         if (enemyValue > playValue)
         {
-            GameStateController.instance.fsm.SwitchState("LoseState");
+            playerHealth --;
+            if(playerHealth == 0)
+                GameStateController.instance.fsm.SwitchState("LoseState");
+            else
+            {
+                //更新血条
+                playerHp.sprite = playerHPs[playerHealth-1];
+                StartCoroutine(ResetToGachaState(selectCard, enemySelectCard));
+            }
         }
         else if (enemyValue < playValue)
         {
-            GameStateController.instance.fsm.SwitchState("WinState");
+            enemyHealth--;
+            if(enemyHealth == 0)
+                GameStateController.instance.fsm.SwitchState("WinState");
+            else
+            {
+                //更新血条
+                enemyHp.sprite = enemyHPs[enemyHealth-1];
+                StartCoroutine(ResetToGachaState(selectCard, enemySelectCard));
+            }
         }
         else
         {
-            GameStateController.instance.fsm.SwitchState("GachaState");
+            StartCoroutine(ResetToGachaState(selectCard, enemySelectCard));
         }
     }
 
+    //按钮方法
     public void TakeAnotherCard()
     {
         GameStateController.instance.fsm.SwitchState("GachaState");
@@ -263,6 +291,35 @@ public class PlaySceneManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void ResetPlay()
+    {
+        for (int i = 0; i < playerCards.Count; i++)
+        {
+            Destroy(playerCards[i].gameObject);
+        }
+        for (int i = 0; i < enemyCards.Count; i++)
+        {
+            Destroy(enemyCards[i].gameObject);
+        }
+        playerCards.Clear();
+        enemyCards.Clear();
+        selectable = false;
+        SetPlayerCardList();
+        SetEnemyCardList();
+    }
+    IEnumerator ResetToGachaState(GameObject playerObj, GameObject enemyObj)
+    {
+        GameStateController.instance.fsm.SwitchState("GachaState");
+        yield return new WaitForSeconds(6f);
+        playerObj.transform.DOMove(new Vector3(0, -9f, 0), 2f);
+        enemyObj.transform.DOMove(new Vector3(0, 9f, 0), 2f).OnComplete(
+            () =>
+            {
+                ResetPlay();
+            }
+            );
     }
 
 }

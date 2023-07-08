@@ -11,7 +11,7 @@ public class WinState : IGameState
     }
     public void EnterState()
     {
-        Debug.Log("Enter WinState");
+        controller.WinPanel.SetActive(true);
     }
 
     public void ExitState()
@@ -21,6 +21,6 @@ public class WinState : IGameState
 
     public void UpdateState()
     {
-        
+        controller.WinPanel.SetActive(false);
     }
 }

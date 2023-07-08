@@ -15,6 +15,9 @@ public class GameStateController : MonoBehaviour
     public GameObject StartPanel;
     public GameObject PausePanel;
     public GameObject GuessPanel;
+    public GameObject LosePanel;
+    public GameObject WinPanel;
+    public GameObject CheatPanel;
 
     [Header("全局变量")]
     public bool _isPlaying;

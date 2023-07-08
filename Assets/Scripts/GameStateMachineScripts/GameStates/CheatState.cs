@@ -12,7 +12,7 @@ public class CheatState : IGameState
 
     public void EnterState()
     {
-        Debug.Log("Enter CheatState");
+        controller.CheatPanel.SetActive(true);
     }
     public void UpdateState()
     {
@@ -20,6 +20,6 @@ public class CheatState : IGameState
     }
     public void ExitState()
     {
-        
+        controller.CheatPanel.SetActive(false);
     }
 }

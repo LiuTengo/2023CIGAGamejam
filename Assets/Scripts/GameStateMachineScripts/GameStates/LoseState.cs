@@ -11,16 +11,15 @@ public class LoseState : IGameState
     }
     public void EnterState()
     {
-        Debug.Log("Enter LoseState");
+        controller.LosePanel.SetActive(true);
     }
     public void UpdateState()
     {
         
     }
-
     public void ExitState()
     {
-        
+        controller.LosePanel.SetActive(false);
     }
 
 
