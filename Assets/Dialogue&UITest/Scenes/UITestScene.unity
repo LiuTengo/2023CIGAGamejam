@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 851409358}
   - component: {fileID: 851409357}
   m_Layer: 5
-  m_Name: Bubble_Aera
+  m_Name: Bubble_Aera_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1351,6 +1351,7 @@ GameObject:
   - component: {fileID: 1395212717}
   - component: {fileID: 1395212716}
   - component: {fileID: 1395212715}
+  - component: {fileID: 1395212719}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1445,6 +1446,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1395212719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395212714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570d762baaf693f498bbad48c983a382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSpriteEnemy: {fileID: 851409357}
+  targetSpritePlayer: {fileID: 1916769467}
+  atlas: {fileID: 4343727234628468602, guid: 63079d06366cdd445a547df20c879588, type: 2}
 --- !u!1 &1412353253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1591,7 @@ GameObject:
   - component: {fileID: 1434489487}
   - component: {fileID: 1434489486}
   - component: {fileID: 1434489485}
+  - component: {fileID: 1434489488}
   m_Layer: 5
   m_Name: Button_00
   m_TagString: Untagged
@@ -1646,7 +1663,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1434489486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1434489488}
+        m_TargetAssemblyTypeName: Test, Assembly-CSharp
+        m_MethodName: getbutton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1434489486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1685,6 +1714,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434489483}
   m_CullTransparentMesh: 1
+--- !u!114 &1434489488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434489483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab071028785a53740b1ccf93c9bfbdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1916769467}
+  headAndTextSpritesManager: {fileID: 0}
 --- !u!1 &1555772973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,7 +2254,7 @@ GameObject:
   - component: {fileID: 1916769468}
   - component: {fileID: 1916769467}
   m_Layer: 5
-  m_Name: Bubble_Area
+  m_Name: Bubble_Area_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
