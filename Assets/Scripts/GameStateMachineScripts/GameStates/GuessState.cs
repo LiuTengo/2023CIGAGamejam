@@ -14,12 +14,12 @@ public class GuessState : IGameState
     }
     public void EnterState()
     {
+
+        controller.GuessPanel.SetActive(true);
+
         //计时器初始化
         time = controller.maxTime;
         controller.sliderImg.color = Color.green;
-
-        //卡牌初始化
-        controller.playManager.SetCard();
     }
     public void UpdateState()
     {

@@ -7,24 +7,34 @@ using UnityEngine.UI;
 
 public class GameStateController : MonoBehaviour
 {
+    public static GameStateController instance;
+
     public GameStateFSM fsm;
 
     [Header("菜单")]
     public GameObject StartPanel;
     public GameObject PausePanel;
-    
+    public GameObject GuessPanel;
 
     [Header("全局变量")]
     public bool _isPlaying;
 
 
-    [Header("猜测状态中")]
+    [Header("猜测状态")]
     [Header("计时器")]
     public float maxTime;//初始时间
     public Image sliderImg;//填充进度条的图片
     public Slider countDownSlider;//进度条
     [Header("卡牌管理")]
     public PlaySceneManager playManager;
+
+    public void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

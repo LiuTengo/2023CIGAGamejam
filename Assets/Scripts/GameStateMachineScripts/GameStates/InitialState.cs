@@ -15,7 +15,7 @@ public class InitialState : IGameState
     }
     public void EnterState()
     {
-        controller.playManager.SetCard();
+        //controller.playManager.SetCard();
     }
 
     public void UpdateState()

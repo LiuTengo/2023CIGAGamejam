@@ -15,4 +15,4 @@ MonoBehaviour:
   CardSuit: 4
   CardValue: 9
   CardBack: {fileID: 0}
-  CardFront: {fileID: 0}
+  CardFront: {fileID: 21300000, guid: 9302d42f098e67c41a201e19aa1d27d0, type: 3}
