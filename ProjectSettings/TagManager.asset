@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - UICamera
+  - Card
+  - GuessCard
   layers:
   - Default
   - TransparentFX

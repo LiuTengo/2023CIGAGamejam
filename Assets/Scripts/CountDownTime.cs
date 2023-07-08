@@ -29,6 +29,11 @@ public class CountDownTime : MonoBehaviour
             time -= Time.deltaTime;
 
         countDownSlider.value = time / maxTime;
-        sliderImg.DOColor(Color.red,maxTime); 
+        sliderImg.DOColor(Color.red,maxTime).OnComplete(
+            () =>
+            {
+
+            }
+            ); 
     }
 }
