@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UV Distort Lit
+  m_Shader: {fileID: 4800000, guid: 408e50338b0adb740887ed5bc9cc6622, type: 3}
+  m_ValidKeywords:
+  - _SHADERSPACE_UV
+  - _TIMESETTINGS_LINEAR_DEFAULT
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 0c4725cc76c62574f97ab300f18a640e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UVDistortNoiseTexture:
+        m_Texture: {fileID: 2800000, guid: 417ec75ed717b504ba4fd622f5eafe43, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UVDistortShaderMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _NormalIntensity: 3
+    - _PixelsPerUnit: 100
+    - _RectHeight: 100
+    - _RectWidth: 100
+    - _ScreenWidthUnits: 10
+    - _ShaderSpace: 0
+    - _TimeFPS: 5
+    - _TimeFrequency: 2
+    - _TimeRange: 0.5
+    - _TimeScale: 1
+    - _TimeSettings: 0
+    - _TimeValue: 0
+    - _UVDistortFade: 1
+    m_Colors:
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _UVDistortFrom: {r: 0, g: 0, b: 0, a: 0}
+    - _UVDistortNoiseScale: {r: 0.4, g: 0.4, b: 0, a: 0}
+    - _UVDistortSpeed: {r: 0.2, g: 0.2, b: 0, a: 0}
+    - _UVDistortTo: {r: 0.04, g: 0.04, b: 0, a: 0}
+  m_BuildTextureStacks: []
