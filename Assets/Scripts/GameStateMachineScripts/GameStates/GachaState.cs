@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,9 @@ public class GachaState : IGameState
 
     public void EnterState()
     {
-        Debug.Log("Enter GachaState");
+        controller.playManager.gameObject.SetActive(true);
+        controller.PlayPanel.SetActive(true);
+
     }
     public void UpdateState()
     {
@@ -23,6 +26,4 @@ public class GachaState : IGameState
     {
         
     }
-
-   
 }

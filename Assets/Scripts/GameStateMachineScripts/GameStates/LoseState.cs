@@ -11,17 +11,19 @@ public class LoseState : IGameState
     }
     public void EnterState()
     {
-        Debug.Log("Enter LoseState");
+        controller.playManager.gameObject.SetActive(false);
+
+        controller.LosePanel.SetActive(true);
+        AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[6]);
+
     }
     public void UpdateState()
     {
         
     }
-
     public void ExitState()
     {
-        
+        controller.LosePanel.SetActive(false);
     }
-
 
 }

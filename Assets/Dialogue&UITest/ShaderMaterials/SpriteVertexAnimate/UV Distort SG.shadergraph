@@ -113,6 +113,15 @@
         },
         {
             "m_Id": "aa7eb6b71a994c8ebdec8c7a545c1754"
+<<<<<<< Updated upstream
+=======
+        },
+        {
+            "m_Id": "45b1e26dd6ad471db0ac761995badd5b"
+        },
+        {
+            "m_Id": "51c8701b19bd4793a80872024f183dfc"
+>>>>>>> Stashed changes
         }
     ],
     "m_GroupDatas": [],
@@ -494,6 +503,15 @@
         "m_Blocks": [
             {
                 "m_Id": "582f02f407114bd69d40b9a539ea1ef3"
+<<<<<<< Updated upstream
+=======
+            },
+            {
+                "m_Id": "45b1e26dd6ad471db0ac761995badd5b"
+            },
+            {
+                "m_Id": "51c8701b19bd4793a80872024f183dfc"
+>>>>>>> Stashed changes
             }
         ]
     },
@@ -1599,16 +1617,27 @@
     "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalTarget",
     "m_ObjectId": "3eacdf494ec246588e6ebed5a546c97a",
     "m_ActiveSubTarget": {
+<<<<<<< Updated upstream
         "m_Id": "c9095e9eb988497e8cc0d459f2b37c25"
     },
     "m_AllowMaterialOverride": false,
     "m_SurfaceType": 0,
+=======
+        "m_Id": "e69cf66474bc4206971334e028d11474"
+    },
+    "m_AllowMaterialOverride": false,
+    "m_SurfaceType": 1,
+>>>>>>> Stashed changes
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
     "m_RenderFace": 2,
     "m_AlphaClip": false,
+<<<<<<< Updated upstream
     "m_CastShadows": true,
+=======
+    "m_CastShadows": false,
+>>>>>>> Stashed changes
     "m_ReceiveShadows": true,
     "m_CustomEditorGUI": "",
     "m_SupportVFX": false
@@ -1645,6 +1674,42 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
+=======
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "45b1e26dd6ad471db0ac761995badd5b",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.Alpha",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "8e67615bb883406ebc0570e34f465f27"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.Alpha"
+}
+
+{
+    "m_SGVersion": 0,
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "4864da5e670847f0b2784ec06e408137",
     "m_Id": 2,
@@ -1820,6 +1885,42 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
+=======
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "51c8701b19bd4793a80872024f183dfc",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.SpriteMask",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "e1ba669026384ce3be33f412cfbf7ef8"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.SpriteMask"
+}
+
+{
+    "m_SGVersion": 0,
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "5286d1bd978c4391bcf1b5ea1bb49c26",
     "m_Id": 4,
@@ -2783,6 +2884,24 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
+=======
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "8e67615bb883406ebc0570e34f465f27",
+    "m_Id": 0,
+    "m_DisplayName": "Alpha",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Alpha",
+    "m_StageCapability": 2,
+    "m_Value": 0.8999999761581421,
+    "m_DefaultValue": 1.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "958522b92acb48f5b56daa02ac0dd3f7",
     "m_Id": 3,
@@ -3294,12 +3413,15 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
     "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalUnlitSubTarget",
     "m_ObjectId": "c9095e9eb988497e8cc0d459f2b37c25"
 }
 
 {
     "m_SGVersion": 0,
+=======
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "c99c3ae9b2604614a8823eaac1b45623",
     "m_Id": 2,
@@ -3471,6 +3593,34 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
+=======
+    "m_Type": "UnityEditor.ShaderGraph.ColorRGBAMaterialSlot",
+    "m_ObjectId": "e1ba669026384ce3be33f412cfbf7ef8",
+    "m_Id": 0,
+    "m_DisplayName": "Sprite Mask",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "SpriteMask",
+    "m_StageCapability": 2,
+    "m_Value": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0,
+        "w": 1.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "e61c1c1fcab240e183c94f0669e900e8",
     "m_Id": 0,
@@ -3486,6 +3636,15 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
+=======
+    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalSpriteUnlitSubTarget",
+    "m_ObjectId": "e69cf66474bc4206971334e028d11474"
+}
+
+{
+    "m_SGVersion": 0,
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.SamplerStateMaterialSlot",
     "m_ObjectId": "e8463cdacc5f40e7a9ab065f214ef8b1",
     "m_Id": 3,

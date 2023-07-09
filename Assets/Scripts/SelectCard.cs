@@ -17,6 +17,7 @@ public class SelectCard : MonoBehaviour
     private void OnMouseEnter()
     {
         transform.DOScale(transform.localScale * 1.2f, 0.5f);
+        AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[14]);
     }
     private void OnMouseExit()
     {

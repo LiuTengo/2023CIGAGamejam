@@ -19,10 +19,12 @@ public class HeadAndTextSpritesManager : MonoBehaviour
         instance = this;
     }
 
+
     // 这个方法将Resources中的某张图赋值到某个Image的sprite上
     public void GetSpriteToArea(string spriteNameInAtlas, Image target, int existMode)
     {
         Sprite temp = Resources.Load<Sprite> (spriteNameInAtlas);
+        Debug.Log("play");
         
         if (existMode == 1)
         {
@@ -41,7 +43,6 @@ public class HeadAndTextSpritesManager : MonoBehaviour
                 target.sprite = temp;
                 target.DOFade(1, 1);
             });
-
         }
         
     }

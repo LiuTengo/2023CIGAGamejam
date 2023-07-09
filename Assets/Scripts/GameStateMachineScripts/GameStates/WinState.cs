@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WinState : IGameState
 {
@@ -11,7 +12,16 @@ public class WinState : IGameState
     }
     public void EnterState()
     {
-        Debug.Log("Enter WinState");
+        controller.playManager.gameObject.SetActive(false);
+        
+        controller.WinPanel.SetActive(true);
+
+        AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[7]);
+
+    }
+    public void UpdateState()
+    {
+       
     }
 
     public void ExitState()
@@ -19,8 +29,5 @@ public class WinState : IGameState
         
     }
 
-    public void UpdateState()
-    {
-        
-    }
+
 }

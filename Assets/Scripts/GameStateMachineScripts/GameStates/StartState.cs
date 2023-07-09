@@ -15,8 +15,9 @@ public class StartState : IGameState
     //进入状态时调用
     public void EnterState()
     {
-        SceneManager.LoadScene("SampleStartScene");
-
+        controller.StartPanel.SetActive(true);
+        controller.playManager.gameObject.SetActive(false);
+        //SceneManager.LoadScene("SampleStartScene");
         //Debug.Log("Enter StartState");
     }
 
@@ -29,7 +30,6 @@ public class StartState : IGameState
     //结束当前状态时调用
     public void ExitState()
     {
-        controller.StartPanel.SetActive(false);
-        //Debug.Log("Exit StartState");
+
     }
 }

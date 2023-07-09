@@ -12,7 +12,9 @@ public class CheatState : IGameState
 
     public void EnterState()
     {
-        Debug.Log("Enter CheatState");
+        controller.playManager.gameObject.SetActive(false);
+        controller.CheatPanel.SetActive(true);
+        AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[5]);
     }
     public void UpdateState()
     {
@@ -20,6 +22,6 @@ public class CheatState : IGameState
     }
     public void ExitState()
     {
-        
+        controller.CheatPanel.SetActive(false);
     }
 }

@@ -77,6 +77,12 @@
         },
         {
             "m_Id": "44b5cbe804af436fa55bc9d8d900dcd8"
+<<<<<<< Updated upstream
+=======
+        },
+        {
+            "m_Id": "d68392274863419b99d906b9be4ab5ad"
+>>>>>>> Stashed changes
         }
     ],
     "m_GroupDatas": [],
@@ -332,6 +338,12 @@
         "m_Blocks": [
             {
                 "m_Id": "e5d15e87b1b44478a5c0ff10907ae467"
+<<<<<<< Updated upstream
+=======
+            },
+            {
+                "m_Id": "d68392274863419b99d906b9be4ab5ad"
+>>>>>>> Stashed changes
             }
         ]
     },
@@ -662,7 +674,11 @@
         "m_Id": "2bf6898641db40139f0a871de1a7aa0d"
     },
     "m_AllowMaterialOverride": false,
+<<<<<<< Updated upstream
     "m_SurfaceType": 0,
+=======
+    "m_SurfaceType": 1,
+>>>>>>> Stashed changes
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
@@ -2308,6 +2324,42 @@
 
 {
     "m_SGVersion": 0,
+<<<<<<< Updated upstream
+=======
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "d68392274863419b99d906b9be4ab5ad",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.Alpha",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "e042dbb861944633803473c42f23309d"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.Alpha"
+}
+
+{
+    "m_SGVersion": 0,
+>>>>>>> Stashed changes
     "m_Type": "UnityEditor.ShaderGraph.UVMaterialSlot",
     "m_ObjectId": "de24c791cdbd4ec593cf33f722ea4b3f",
     "m_Id": 2,
@@ -2400,6 +2452,24 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+<<<<<<< Updated upstream
+=======
+    "m_ObjectId": "e042dbb861944633803473c42f23309d",
+    "m_Id": 0,
+    "m_DisplayName": "Alpha",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Alpha",
+    "m_StageCapability": 2,
+    "m_Value": 1.0,
+    "m_DefaultValue": 1.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+>>>>>>> Stashed changes
     "m_ObjectId": "e12f38caf6f0487aaa96f179d3bd2b9c",
     "m_Id": 2,
     "m_DisplayName": "G",

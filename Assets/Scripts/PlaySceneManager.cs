@@ -10,24 +10,38 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class PlaySceneManager : MonoBehaviour
 {
-    public Vector3 largeScale;
-
+    public int playerHealth, enemyHealth;
     public GameObject playerCard,enemyCard;
+    public List<CardScriptableObject> cardInfos;
     public List<GameObject> playerCards;
     public List<GameObject> enemyCards;
-    public List<CardScriptableObject> cardInfos;
+    public List<Sprite> enemyHPs, playerHPs;
+    public Image enemyHp, playerHp;
+
 
     private GameObject selectCard,enemySelectCard;
     private int cardIndex;
     private bool selectable;
-    private void Start()
+    private bool start;
+    private void OnEnable()
     {
+        playerHealth = 3;
+        enemyHealth = 3;
+
+        enemyHp.sprite = enemyHPs[enemyHealth-1];
+        playerHp.sprite = playerHPs[playerHealth - 1];
+
         selectable = false;
-        SetPlayerCardList();
-        SetEnemyCardList();
+        start = true;
     }
     private void Update()
     {
+        if (start)
+        {
+            ResetPlay();
+            start= false;
+        }
+
         if(selectable)
             ClickCard();
     }
@@ -36,7 +50,8 @@ public class PlaySceneManager : MonoBehaviour
     //生成卡牌列
     public void SetPlayerCardList()
     {
-        for(int i = 0; i< 3; i++)
+        AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[11]);
+        for (int i = 0; i< 3; i++)
         {
             playerCards.Add(Instantiate(playerCard,new Vector3(-7f,-5f,0),Quaternion.identity)); 
         }
@@ -53,6 +68,7 @@ public class PlaySceneManager : MonoBehaviour
 
     public void SetEnemyCardList()
     {
+        AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[11]);
         for (int i = 0; i < 3; i++)
         {
             enemyCards.Add(Instantiate(enemyCard, new Vector3(7f, 5f, 0), Quaternion.identity));
@@ -103,6 +119,7 @@ public class PlaySceneManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && GameStateController.instance.fsm.currentState == GameStateController.instance.fsm.states["GachaState"])
         {
+
             //从鼠标位置上发出射线
             Ray rayCast = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -115,6 +132,8 @@ public class PlaySceneManager : MonoBehaviour
 
                     if (hit.collider.tag == "Card")
                     {
+                        AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[11]);
+
                         hit.transform.DOMove(Vector3.zero,1f);
                         hit.transform.DOScale(Vector3.one, 0.5f);
 
@@ -134,6 +153,11 @@ public class PlaySceneManager : MonoBehaviour
     //按钮方法---比较卡牌点数大小
     public void CompareCardValue()
     {
+        AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[9]);
+
+        GameStateController.instance.GuessPanel.SetActive(false);
+        selectCard.GetComponent<BoxCollider>().enabled = false;
+
         int enemyIndex = UnityEngine.Random.Range(0,enemyCards.Count);
 
         SetEnemyCard(enemyCards[enemyIndex]);
@@ -151,20 +175,51 @@ public class PlaySceneManager : MonoBehaviour
 
         if (enemyValue > playValue)
         {
-            GameStateController.instance.fsm.SwitchState("LoseState");
+            playerHealth --;
+            AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[1]);
+
+            HeadAndTextSpritesManager.instance.GetSpriteToArea("e1", HeadAndTextSpritesManager.instance.targetSpriteEnemy, 1);//1--enemy
+            HeadAndTextSpritesManager.instance.GetSpriteToArea("p2", HeadAndTextSpritesManager.instance.targetSpritePlayer, 2);//2--player
+
+            if (playerHealth == 0)
+                GameStateController.instance.fsm.SwitchState("LoseState");
+            else
+            {
+                //更新血条
+                playerHp.sprite = playerHPs[playerHealth-1];
+                StartCoroutine(ResetToGachaState(selectCard, enemySelectCard));
+            }
         }
         else if (enemyValue < playValue)
         {
-            GameStateController.instance.fsm.SwitchState("WinState");
+            enemyHealth--;
+            AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[0]);
+
+            HeadAndTextSpritesManager.instance.GetSpriteToArea("e3", HeadAndTextSpritesManager.instance.targetSpriteEnemy, 1);//1--enemy
+            HeadAndTextSpritesManager.instance.GetSpriteToArea("p1", HeadAndTextSpritesManager.instance.targetSpritePlayer, 2);//2--player
+
+            if (enemyHealth == 0)
+                GameStateController.instance.fsm.SwitchState("WinState");
+            else
+            {
+                //更新血条
+                enemyHp.sprite = enemyHPs[enemyHealth-1];
+                StartCoroutine(ResetToGachaState(selectCard, enemySelectCard));
+            }
         }
         else
         {
-            GameStateController.instance.fsm.SwitchState("GachaState");
+            AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[1]);
+
+            StartCoroutine(ResetToGachaState(selectCard, enemySelectCard));
         }
     }
 
+    //按钮方法
     public void TakeAnotherCard()
     {
+        AudioManager.instance.audioSource.PlayOneShot(AudioManager.instance.clips[9]);
+
         GameStateController.instance.fsm.SwitchState("GachaState");
         selectCard.transform.DOMove(new Vector3(0, -9f, 0), 2f).OnComplete(
             () =>
@@ -176,6 +231,7 @@ public class PlaySceneManager : MonoBehaviour
                 playerCards.Clear();
 
                 SetPlayerCardList();
+                selectable = false;
             }
             );
     }
@@ -265,4 +321,35 @@ public class PlaySceneManager : MonoBehaviour
         }
     }
 
+    public void ResetPlay()
+    {
+        for (int i = 0; i < playerCards.Count; i++)
+        {
+            if(playerCards[i] != null)
+                Destroy(playerCards[i].gameObject);
+        }
+        for (int i = 0; i < enemyCards.Count; i++)
+        {
+            if (enemyCards[i] != null)
+                Destroy(enemyCards[i].gameObject);
+        }
+        playerCards.Clear();
+        enemyCards.Clear();
+        selectable = false;
+
+        SetPlayerCardList();
+        SetEnemyCardList();
+    }
+    IEnumerator ResetToGachaState(GameObject playerObj, GameObject enemyObj)
+    {
+        GameStateController.instance.fsm.SwitchState("GachaState");
+        yield return new WaitForSeconds(6f);
+        playerObj.transform.DOMove(new Vector3(0, -9f, 0), 2f);
+        enemyObj.transform.DOMove(new Vector3(0, 9f, 0), 2f).OnComplete(
+            () =>
+            {
+                ResetPlay();
+            }
+            );
+    }
 }

@@ -29,13 +29,16 @@ public class CheckMousePosition : MonoBehaviour
             //有碰撞体则震动卡牌
             if (hit.collider != null)
             {
-                if (hit.collider.tag == "GuessCard" && Mathf.Sqrt(mouseXSpeed * mouseXSpeed + mouseYSpeed * mouseYSpeed) <minSpeed)
+                if(Mathf.Sqrt(mouseXSpeed * mouseXSpeed + mouseYSpeed * mouseYSpeed) < minSpeed)
                 {
-                    hit.transform.parent.DOScale(transform.localScale *0.95f,0.1f).SetLoops(4,LoopType.Yoyo);
-                    //Sequence sequence = DOTween.Sequence();
-                    //sequence.Append(hit.transform.parent.DOScale(transform.localScale*));
-                    //sequence.Append(hit.transform.parent.DOMove(Vector3.zero,0.1f));
+
+                        if (hit.collider.tag == "GuessCard")
+                        {
+                            hit.transform.parent.DOScale(transform.localScale *0.92f,0.1f).SetLoops(4,LoopType.Yoyo);
+
+                        }
                 }
+                
             }
         }
         }
